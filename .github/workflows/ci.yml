@@ -2,10 +2,7 @@ name: test
 run-name: ${{ github.actor }}
 on:
     workflow_dispatch:
-    pull_request_target:
-        branches:
-            - main
-            - dev
+    pull_request:
     push:
         branches:
             - main
@@ -14,13 +11,13 @@ jobs:
     A:
         runs-on: ubuntu-latest
         steps:
-            - name: hi
-              run: echo 'hi'
-            - name: print
+            - name: ref
               run: echo ${{github.ref}}
-    B:
-        runs-on: ubuntu-latest
-        steps:
-            - name: bye
-              run: echo 'bye'
+            - name: base_ref
+              run: echo ${{github.base_ref}}
+            - name: event
+              run: echo ${{github.event}}
+            - name: event name
+              run: echo ${{github.event_name}}
+
             
