@@ -1,0 +1,26 @@
+name: test
+run-name: ${{ github.actor }}
+on:
+    workflow_dispatch:
+    pull_request_target:
+        branches:
+            - main
+            - dev
+    push:
+        branches:
+            - main
+            - dev
+jobs:
+    A:
+        runs-on: ubuntu-latest
+        steps:
+            - name: hi
+              run: echo 'hi'
+            - name: print
+              run: echo ${{github.ref}}
+    B:
+        runs-on: ubuntu-latest
+        steps:
+            - name: bye
+              run: echo 'bye'
+            
