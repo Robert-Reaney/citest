@@ -1,0 +1,25 @@
+name: test
+run-name: ${{ github.actor }}
+on:
+    workflow_dispatch:
+    pull_request:
+    push:
+        branches:
+            - main
+            - dev
+jobs:
+    A:
+        runs-on: ubuntu-latest
+        steps:
+            - name: ref
+              run: echo ${{github.ref}}
+            - name: base_ref
+              run: echo ${{github.base_ref}}
+            - name: head_ref
+              run: echo ${{github.head_ref}}
+            - name: event
+              run: echo ${{github.event}}
+            - name: event name
+              run: echo ${{github.event_name}}
+
+            
